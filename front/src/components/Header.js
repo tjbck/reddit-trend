@@ -20,6 +20,7 @@ const Header = ({ title }) => {
 
             <Heading
               fontSize={{ base: '3xl', sm: '4xl', md: '6xl' }}
+              pb="4"
             >
               Reddit post trend prediction{' '}
               <Text as={'span'} color={'orange.400'}>
@@ -27,7 +28,7 @@ const Header = ({ title }) => {
               </Text>
             </Heading>
 
-            <Text fontSize={'xl'}>
+            <Text fontSize={'xl'} pb="6">
               This project explores the possibility of applying machine learning
               tools for marketing and community engagement purposes. We intend
               to build a system consisting of several components that analyzes
