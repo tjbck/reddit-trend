@@ -1,6 +1,7 @@
 import {
   Stack,
   Input,
+  Link,
   FormControl,
   Heading,
   Button,
@@ -109,19 +110,31 @@ const Rating = () => {
       {state === 'success' && (
         <Center pt="5">
           <Stack w="100%">
-            <Text>Analysis of <Text as="i">{url}</Text></Text>
+            <Text>
+              Analysis of <Text as="i"><Link href={url}> {url} </Link></Text>
+            </Text>
             {prediction == '' ? (
               <SkeletonText mt="4" noOfLines={4} spacing="4" isLoaded={false} />
             ) : (
               <Center pt="5">
                 <Stack>
-                <Center pt="5">
-                    <Text  as="em"> expected rating 📈</Text>
+                  <Center pt="5">
+                    <Text as="em"> expected rating 📈</Text>
                   </Center>
-                  <Heading fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }} >
+                  <Center >
+
+                  <Heading fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}>
                     {prediction.expected_rating}
                   </Heading>
-                  
+                  </Center>
+
+                  <Center pt="5">
+                    <Text as="em">
+                      {' '}
+                      this post will be archived in{' '}
+                      <Text as="u">{prediction.will_be_archived_in_days}</Text> days
+                    </Text>
+                  </Center>
                 </Stack>
               </Center>
             )}
