@@ -12,6 +12,7 @@ let server = require("http").createServer(app);
 app.use(express.json());
 app.use(cors());
 
+// Server Log
 app.use((req, res, next) => {
   console.log(
     `${req.protocol}://${req.get("host")}${

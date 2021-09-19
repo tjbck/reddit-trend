@@ -30,8 +30,8 @@ const Header = ({ title }) => {
 
             <Text fontSize={'xl'} pb="6">
               This project explores the possibility of applying machine learning
-              tools for marketing and community engagement purposes. We intend
-              to build a system consisting of several components that analyzes
+              tools for marketing and community engagement purposes. We've
+              built a system consisting of several components that analyzes
               existing Reddit posts and makes plausible predictions about their
               expected performance in terms of ratings and community
               interactions.

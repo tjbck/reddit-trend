@@ -57,7 +57,7 @@ const Rating = () => {
             e.preventDefault();
             setError(false);
             setState('submitting');
-            alert(`Retrieving data from ${url}...`);
+            // alert(`Retrieving data from ${url}...`);
             if (validURL(url)) {
               // Retrieve Reddit Post JSON Data
               fetch(
@@ -111,7 +111,10 @@ const Rating = () => {
         <Center pt="5">
           <Stack w="100%">
             <Text>
-              Analysis of <Text as="i"><Link href={url}> {url} </Link></Text>
+              Analysis of{' '}
+              <Text as="i">
+                <Link href={url}> {url} </Link>
+              </Text>
             </Text>
             {prediction == '' ? (
               <SkeletonText mt="4" noOfLines={4} spacing="4" isLoaded={false} />
@@ -119,20 +122,37 @@ const Rating = () => {
               <Center pt="5">
                 <Stack>
                   <Center pt="5">
-                    <Text as="em"> expected rating 📈</Text>
+                    <Text as="em"> current rating 📤</Text>
                   </Center>
-                  <Center >
-
-                  <Heading fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}>
-                    {prediction.expected_rating}
-                  </Heading>
+                  <Center>
+                    <Heading fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}>
+                      {prediction.current_rating}
+                    </Heading>
                   </Center>
-
                   <Center pt="5">
                     <Text as="em">
                       {' '}
-                      this post will be archived in{' '}
-                      <Text as="u">{prediction.will_be_archived_in_days}</Text> days
+                      expected rating 📈 in{' '}
+                      <Text as="u">
+                        {prediction.will_be_archived_in_days}
+                      </Text>{' '}
+                      days
+                    </Text>
+                  </Center>
+                  <Center>
+                    <Heading fontSize={{ base: '5xl', sm: '6xl', md: '8xl' }}>
+                      {prediction.expected_rating}
+                    </Heading>
+                  </Center>
+
+                  <Center pt="5">
+                    <Text as="sub">
+                      {' '}
+                      *this post will be archived in{' '}
+                      <Text as="u">
+                        {prediction.will_be_archived_in_days}
+                      </Text>{' '}
+                      days
                     </Text>
                   </Center>
                 </Stack>

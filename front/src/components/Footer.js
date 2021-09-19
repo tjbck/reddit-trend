@@ -36,19 +36,17 @@ export default function LargeWithNewsletter() {
           <Stack spacing={6}>
             <Text fontSize={'sm'}>
               © 2021 Agile Project, Reddit Trend <br />
-              by Nikolay, Erik, Janette and Jaeryang
+              by Nikolay, Erik and Jaeryang
             </Text>
           </Stack>
           
           <Stack align={'flex-start'}>
           </Stack>
           <Stack align={'flex-start'}>
-            <ListHeader>Company</ListHeader>
+            <ListHeader>Project</ListHeader>
             <Link href={'#'}>About us</Link>
-            <Link href={'#'}>Blog</Link>
-            <Link href={'#'}>Contact us</Link>
-            <Link href={'#'}>Pricing</Link>
-            <Link href={'#'}>Testimonials</Link>
+            <Link href={'#'}>Predict</Link>
+            <Link href={'#'}>Free Pricing</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Stay up to date</ListHeader>
@@ -69,6 +67,9 @@ export default function LargeWithNewsletter() {
                 }}
                 aria-label="Subscribe"
                 icon={<BiMailSend />}
+                onClick={e => {
+                  alert("You've been subscribed to our mailing list.")
+                }}
               />
             </Stack>
           </Stack>
