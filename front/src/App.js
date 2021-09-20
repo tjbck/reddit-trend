@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Center w="100vw" h="90vh" mb={4} >
+      <Center w="100vw" h="90vh" mb={4}>
         <Container maxW={'5xl'}>
           <Header title="🤖 Reddit Trend 🚀" />
           <Rating />

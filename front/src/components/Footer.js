@@ -39,9 +39,8 @@ export default function LargeWithNewsletter() {
               by Nikolay, Erik and Jaeryang
             </Text>
           </Stack>
-          
-          <Stack align={'flex-start'}>
-          </Stack>
+
+          <Stack align={'flex-start'}></Stack>
           <Stack align={'flex-start'}>
             <ListHeader>Project</ListHeader>
             <Link href={'#'}>About us</Link>
@@ -68,7 +67,7 @@ export default function LargeWithNewsletter() {
                 aria-label="Subscribe"
                 icon={<BiMailSend />}
                 onClick={e => {
-                  alert("You've been subscribed to our mailing list.")
+                  alert("You've been subscribed to our mailing list.");
                 }}
               />
             </Stack>

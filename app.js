@@ -4,7 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const history = require("connect-history-api-fallback");
 const moment = require("moment");
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
 const app = express();
 let server = require("http").createServer(app);
@@ -39,7 +39,9 @@ app.get("/predict", function (req, res) {
           res.send({ result });
         })
         .catch((error) => {
-          res.send({ error: "Something Went Wrong with Our Prediction Backend :/" });
+          res.send({
+            error: "Something Went Wrong with Our Prediction Backend :/",
+          });
           console.error(error);
         });
     })

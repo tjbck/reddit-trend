@@ -1,5 +1,10 @@
 import React, { Fragment } from 'react';
-import { useColorMode, useColorModeValue, Button, Text } from '@chakra-ui/react';
+import {
+  useColorMode,
+  useColorModeValue,
+  Button,
+  Text,
+} from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 export const ColorModeSwitcher = props => {
@@ -21,12 +26,8 @@ export const ColorModeSwitcher = props => {
       >
         <SwitchIcon /> <Text pl={3}> Switch to {text} mode</Text>
       </Button>
-
-
     </Fragment>
-
   );
 };
-
 
 export default ColorModeSwitcher;

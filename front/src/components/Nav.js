@@ -29,7 +29,8 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}>
+    href={'#'}
+  >
     {children}
   </Link>
 );
@@ -53,8 +54,9 @@ export default function withAction() {
             <HStack
               as={'nav'}
               spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-              {Links.map((link) => (
+              display={{ base: 'none', md: 'flex' }}
+            >
+              {Links.map(link => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
             </HStack>
@@ -65,7 +67,8 @@ export default function withAction() {
               colorScheme={'teal'}
               size={'sm'}
               mr={4}
-              leftIcon={<AddIcon />}>
+              leftIcon={<AddIcon />}
+            >
               Action
             </Button>
             <Menu>
@@ -73,7 +76,8 @@ export default function withAction() {
                 as={Button}
                 rounded={'full'}
                 variant={'link'}
-                cursor={'pointer'}>
+                cursor={'pointer'}
+              >
                 <Avatar
                   size={'sm'}
                   src={
@@ -94,7 +98,7 @@ export default function withAction() {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {Links.map((link) => (
+              {Links.map(link => (
                 <NavLink key={link}>{link}</NavLink>
               ))}
             </Stack>

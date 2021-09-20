@@ -46,64 +46,71 @@ const Rating = () => {
   return (
     <div>
       <Center>
-        <Stack
-          textAlign={'center'}
-          maxW="560px"
-          minW="560px"
-          direction={{ base: 'row' }}
-          as={'form'}
-          spacing={'12px'}
-          onSubmit={e => {
-            e.preventDefault();
-            setError(false);
-            setState('submitting');
-            // alert(`Retrieving data from ${url}...`);
-            if (validURL(url)) {
-              // Retrieve Reddit Post JSON Data
-              fetch(
-                `${window.location.protocol}//${window.location.hostname}/predict?url=${url}`
-              )
-                .then(response => response.json())
-                .then(data => {
-                  console.log(data);
-                  if (!data.error) {
-                    setState('success');
-                    setPrediction(data.result);
-                  } else {
-                    throw new Error(data.error);
-                  }
-                })
-                .catch(error => {
-                  alert(error);
-                  console.error(error);
-                  setError(true);
-                  setState('initial');
-                });
-            } else {
-              alert(`'${url}' is not a valid URL, Please try again.`);
-              setError(true);
-              setState('initial');
-              return;
-            }
-          }}
-        >
-          <FormControl>
-            <Input
-              variant="outline"
-              placeholder="Copy and Paste Your Reddit Post URL Here!"
-              onChange={e => handleSubmit(e.target.value)}
-            />
-          </FormControl>
-          <FormControl w={{ base: '100%', md: '40%' }}>
-            <Button
-              colorScheme={state === 'success' ? 'green' : 'blue'}
-              isLoading={state === 'submitting'}
-              w="100%"
-              type="submit"
-            >
-              {state === 'success' ? <CheckIcon /> : 'Submit'}
-            </Button>
-          </FormControl>
+        <Stack>
+          <Stack
+            textAlign={'center'}
+            maxW="560px"
+            minW="560px"
+            direction={{ base: 'row' }}
+            as={'form'}
+            spacing={'12px'}
+            onSubmit={e => {
+              e.preventDefault();
+              setError(false);
+              setState('submitting');
+              // alert(`Retrieving data from ${url}...`);
+              if (validURL(url)) {
+                // Retrieve Reddit Post JSON Data
+                fetch(
+                  `${window.location.protocol}//${window.location.hostname}/predict?url=${url}`
+                )
+                  .then(response => response.json())
+                  .then(data => {
+                    console.log(data);
+                    if (!data.error) {
+                      setState('success');
+                      setPrediction(data.result);
+                    } else {
+                      throw new Error(data.error);
+                    }
+                  })
+                  .catch(error => {
+                    alert(error);
+                    console.error(error);
+                    setError(true);
+                    setState('initial');
+                  });
+              } else {
+                alert(`'${url}' is not a valid URL, Please try again.`);
+                setError(true);
+                setState('initial');
+                return;
+              }
+            }}
+          >
+            <FormControl>
+              <Input
+                variant="outline"
+                placeholder="Copy and Paste Your Reddit Post URL Here!"
+                onChange={e => handleSubmit(e.target.value)}
+              />
+            </FormControl>
+            <FormControl w={{ base: '100%', md: '40%' }}>
+              <Button
+                colorScheme={state === 'success' ? 'green' : 'blue'}
+                isLoading={state === 'submitting'}
+                w="100%"
+                type="submit"
+              >
+                {state === 'success' ? <CheckIcon /> : 'Submit'}
+              </Button>
+            </FormControl>
+          </Stack>
+          <Text as="sub">
+            {' '}
+            e.g.)
+            https://www.reddit.com/r/Health/comments/prj05q/high_staff_vaccination_rates_helps_nursing_homes/
+          </Text>
         </Stack>
       </Center>
 
